@@ -1,3 +1,28 @@
+/*
+ARDUBOT_UDD
+Recepción de información de APP y movimiento de ArduBot Para realizar los movimientos del ArduBot se programo una función
+llamada mof_fow.
+Esta función recibe como parámetros la velocidad, id acción y el tiempo
+de movimiento.
+De acuerdo a lo anterior se debe llamar de la siguiente manera:
+
+mov_fow(velocidad,accion,tiempo);
+
+Las acciones disponibles programadas son las siguientes:
+
+0: Avanzar
+1: Retroceder
+2: Giro Derecha
+3: Giro Izquierda
+10: Freno total
+11: Giro 180 grados
+
+Además se instaló un sensor de distancia que permite al detectar una
+distancia menor de 20 cm realiza un giro de 180 grados.
+*/
+
+
+
 #include <AFMotor.h>
 #include <SoftwareSerial.h>
 SoftwareSerial bt (2,13); // RX, TX

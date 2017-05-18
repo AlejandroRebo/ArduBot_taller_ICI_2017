@@ -24,9 +24,11 @@ distancia menor de 40 cm realiza un retroceso.
 
 
 
-#include <AFMotor.h>
+#include <AFMotor.h> //libreria de motor de adafruit v1
 #include <SoftwareSerial.h>
-SoftwareSerial bt (2,13); // RX, TX
+SoftwareSerial bt (2,13); // RX, TX recordar los pines 
+//CONECTA DESDE EL HC-05 TX AL ARDUINO PIN DIGITAL 2. 
+// CONECTA DESDE EL HC-05 RX AL ARDUINO PIN DIGITAL  13
 #define trigPin 10
 #define echoPin 9
 long tiempo, distancia;
@@ -57,10 +59,10 @@ void loop() {
         Motor4.setSpeed(VEL);
 
         
-  if (VEL >=255){ //esto permite controlar el exeso numerico de velocidad
+  if (VEL >=255){ //esto permite controlar el exeso numerico de velocidad hace que al sumar mas de 255 quede en 255
   VEL=255;
   }
-   if (VEL <= 0){
+   if (VEL <= 0){ //similar si la resta llega a un numero negativo se mantiene en 0
   VEL=0;
   }
 
@@ -167,7 +169,7 @@ Motor4.run(RELEASE);
       }
       else if(estado == 'l') //menos velocidad de la variable global
       {
-         Serial.println("menos");
+         Serial.println("menos"); 
        VEL=VEL-20; //de esta forma restamos a la variable global VEL 20 unidades mas arriba esta un codigo para limitar el numero
         
       }
